@@ -18,7 +18,14 @@ for sensor in sensorList:
     cursor.execute(sql)
     dbconnect.commit()
 
-sql = "select * from sensors where sensors.zone LIKE 'garage'"
+sql = "select * from sensors where sensors.zone LIKE 'kitchen'"
+
+cursor.execute(sql)
+
+for r in cursor:
+    print("SensorID: " + str(r[0]), "Type: " + str(r[1]),"Zone: " + str(r[2]))
+    
+sql = "select * from sensors where sensors.type LIKE 'door'"
 
 cursor.execute(sql)
 
